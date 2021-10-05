@@ -86,9 +86,12 @@ function name(name) {
 }
 name('josh');
 
-function conditional() {
-	// I DONT UNDERSTANSTAND, PLEASE EXPLAIN
+function conditional(a, b, c) {
+	console.log(
+		`${a} is the smallest number, ${c} is the biggest number between a = ${a}, b = ${b}, and c= ${c}`
+	);
 }
+conditional(12, 45, 68);
 
 function seriesOfNumber(a, b) {
 	for (var i = a; a > b; a--) {
@@ -96,6 +99,14 @@ function seriesOfNumber(a, b) {
 	}
 }
 seriesOfNumber(8, 5);
+
+function getLeapYears(start, end) {
+	if (start % 4 === 0) {
+		console.log(`${start}`);
+	}
+}
+getLeapYears(2019, 0);
+
 //SWAPPING VALUES///////////////////
 var a = 111;
 var b = 999;
