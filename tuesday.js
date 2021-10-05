@@ -161,3 +161,40 @@ for (let x = 1; x <= size; x++) {
 
 	console.log(line);
 }
+// ITERATE OVER ARRAY'S //////////////////////
+let fruit = ['jackfruit', 'pineapple', 'plum', 'dragonfruit', 'apple'];
+function listFruits() {
+	for (let i = 0; i < fruit.length; i++) {
+		console.log(`I am going to eat a ${fruit[i]}`);
+	}
+}
+listFruits();
+
+let workingHours = [6, 6, 7, 7, 8, 8, 6, 7, 8, 7];
+function remoteSalary() {
+	let total = 0;
+
+	for (let i = 0; i < workingHours.length; i++) {
+		total += workingHours[i];
+		console.log(`Peter earned $${workingHours[i] * 25} today`);
+		console.log(workingHours[i] * 25);
+	}
+	let grand = total * 25;
+	console.log(`In the last two weeks Peter has made $${grand}`);
+}
+remoteSalary();
+// add working hours up and multiply by 25
+
+// display in console
+
+// TRUTHY OR FALSEY ////////////////////////////////////
+let one = 1;
+if (one) {
+	console.log(`It's truthy`);
+}
+let zero = 0;
+if (zero) {
+	console.log(`It's truthy`);
+} else {
+	console.log(`It's False`);
+}
