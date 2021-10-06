@@ -300,3 +300,47 @@ function formattedTasks(data) {
 	});
 }
 formattedTasks(data);
+//
+//
+//YOU WENT OVER THIS REALLY FAST, IT WAS A BIT CONFUSING WHERE EVERYTHING WENT AND WHY
+
+//This is a good function, maybe you could explain the thought process and why after class
+function generateFakeTask(n) {
+	let response = [];
+	let taskNumber = n;
+	console.log(taskNumber);
+	let statusOption = ['Not Started', 'Done', 'In Progress'];
+	for (let i = 0; i < n; i++) {
+		let randomChoice = statusOption[Math.floor(Math.random() * 3)];
+
+		let singleTask = { name: `Task ${i + 1}`, status: randomChoice };
+		response.push(singleTask);
+		console.log(singleTask);
+	}
+	console.log(response);
+	return response;
+}
+// console.log(generateFakeTask(3));
+let toBeAdded = generateFakeTask(10);
+data.tasks = toBeAdded;
+// console.log(data);
+formattedTasks(data);
+//
+// GENERATE A PASSWORD//////////////////////////////////////////////////////////
+//
+let characters =
+	'encinei2rncnoscne9876VEVEVEv5evrvEVe3wg3445mmhmipZAZXECDrvrthntunvDSCWCFREGET';
+function getRandomChar(characters) {
+	let char = characters[Math.floor(Math.random() * characters.length)];
+	return char;
+}
+
+function getRandomString(length) {
+	let res = '';
+	for (let i = 0; i < length; i++) {
+		let newChar = getRandomChar(characters);
+		res += newChar;
+	}
+	return res;
+}
+console.log(getRandomString(10));
