@@ -70,11 +70,12 @@ function evenAndOdd(arr) {
 evenAndOdd(arr);
 //
 function getRandomInt(start, end) {
+	let newArray = [];
 	for (let i = start; i <= end; i++) {
-		// console.log(i);
 		let a = Math.floor(Math.random() * end) + 1;
-		console.log(a);
+		newArray.push(a);
 	}
+	console.log(newArray);
 }
 
 getRandomInt(0, 100);
