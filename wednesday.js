@@ -12,14 +12,17 @@ console.log(programmers);
 
 programmers.shift();
 console.log(programmers);
-// HINT HINT WINK WINK
-const myCompanies = [`Zalo`, `Vietnam Airlines`];
+const myCompanies = [`Zalo`, `Shopee`];
+// HINT HINT WINK WINK^^^^^^^^^^^^^^^^
 const theirCompanies = [`Microsoft`, `SpaceX`];
 // concat = add two arrays together
 const techCompanies = myCompanies.concat(theirCompanies);
 console.log(techCompanies);
 // /////////////////////////////////////////////////////////////
 let cars = [`Lambo`, `Ferrari`, `Range Rover`, `BMW`];
+let old = cars.pop(2);
+console.log(old);
+console.log(cars);
 // add e to end
 let newCars = cars.push(`Mercedez-Benz`);
 console.log(cars);
@@ -37,6 +40,8 @@ cars.push(`Bentley`);
 cars.push(`Audi`);
 cars.push(`Porsche`);
 console.log(cars);
+// slice === only copies original array
+// splice === mutate original array
 // SLICE elements off that start before this index
 console.log(cars.slice(2));
 // SLICE from start(2 or 1) up to/not including end (4 or 5)
@@ -51,12 +56,12 @@ let placesLived = [`usa`, `indonesia`, `thailand`, `vietnam`];
 console.log(placesLived.includes(`vietnam`));
 console.log(placesLived.includes(`south korea`));
 //
-// function reverseArray(arr) {
-// 	return arr.reverse();
-// }
 let arr = [1, 2, 3, 4, 5];
 console.log(arr);
-// console.log(reverseArray(arr));
+function reverseArray(arr) {
+	return arr.reverse();
+}
+console.log(reverseArray(arr));
 //
 function evenAndOdd(arr) {
 	for (let i = 0; i < arr.length; i++) {
@@ -120,6 +125,8 @@ function isCoderSchoolStaff(person) {
 }
 isCoderSchoolStaff(mark);
 // OBJECT EXERCISE ///////////////////////////////////////
+//
+//
 const charles = {};
 charles.company = `coderschool staff`;
 isCoderSchoolStaff(charles);
@@ -135,13 +142,6 @@ console.log(charles);
 console.log(charles.company);
 console.log(charles.company.split().slice()[1]);
 //
-// INITIALS FUNCTION
-function initials(person) {
-	let first = person.fullName.charAt();
-	// let last = person.fullName...initials
-	console.log(first);
-}
-initials(mark);
 // AGE ONE YEAR FUNCITON
 function ageOneYear(person) {
 	let newAge = person.age + 1;
@@ -156,4 +156,147 @@ function getBirthYear(person) {
 	console.log(birthYear);
 }
 getBirthYear(mark);
+// LOGLASTNAME
+function logLastName(person) {
+	let name = person.fullName.split(' ');
+	console.log(name[1]);
+}
+logLastName(mark);
+//GET INTITALS
+function initials(person) {
+	let firstName = person.fullName.split(' ')[0];
+	let lastName = person.fullName.split(' ')[1];
+	let firstNameLetter = firstName.charAt();
+	let LastNameLetter = lastName.charAt();
+	console.log(`The initials are ${firstNameLetter} ${LastNameLetter}`);
+}
+initials(mark);
+// OBJECT METHODS //////////////////////////////////////////////
+var userA = {
+	id: 123456,
+	name: 'Peter Parker',
+	email: 'peter.parker@gmail.com',
+	role: 'student',
+	courseId: 112233,
+	age: 16,
+	tasks: [
+		{ name: 'Task 1', status: 'Done' },
+		{ name: 'Task 2', status: 'Not Started' },
+		{ name: 'Task 3', status: 'In Progress' },
+		{ name: 'Task 4', status: 'Not Started' },
+		{ name: 'Task 5', status: 'Done' },
+		{ name: 'Task 6', status: 'In Progress' },
+		{ name: 'Task 7', status: 'Not Started' },
+		{ name: 'Task 8', status: 'Done' },
+		{ name: 'Task 9', status: 'Done' },
+		{ name: 'Task 10', status: 'In Progress' },
+	],
+};
+
+let keys = Object.keys(userA);
+let values = Object.values(userA);
+console.log(`There are ${(keys.length + values.length) / 2} pairs`);
+
+// function key() {
+// 	for (let i = 0; i < keys.length; i++) {
+// 		console.log(`${keys}`);
+// 		for (let i = 0; i < values.length; i++) {
+// 			console.log(`${values}`);
+// 		}
+// 	}
+// }
+// key();
 //
+
+function printKeys(xxx) {
+	let listOfKeys = Object.keys(xxx);
+	for (let i = 0; i < listOfKeys.length; i++) {
+		const keyName = listOfKeys[i];
+		console.log(`The value of ${keyName} is ${xxx[keyName]}`);
+	}
+}
+printKeys(mark);
+//HAS AN EMAIL ADDRESS
+function hasEmail(xxx) {
+	if (xxx.hasOwnProperty('email')) {
+		console.log(`User has an Email`);
+	} else {
+		`Please input email`;
+	}
+}
+hasEmail(userA);
+//HAS AN AGE
+function hasAge(xxx) {
+	if (xxx.hasOwnProperty('age')) {
+		console.log(`User has an age of ${xxx.age}`);
+	} else {
+		`Please input your age`;
+	}
+}
+hasAge(userA);
+// NESTED OBJECTS ////////////////////////////////////////////////////////
+let data = {
+	id: 123456,
+	name: 'Peter Parker',
+	email: 'peter.parker@gmail.com',
+	role: 'student',
+	courseId: 112233,
+	age: 16,
+	tasks: [
+		{ name: 'Task 1', status: 'Done' },
+		{ name: 'Task 2', status: 'Not Started' },
+		{ name: 'Task 3', status: 'In Progress' },
+		{ name: 'Task 4', status: 'Not Started' },
+		{ name: 'Task 5', status: 'Done' },
+		{ name: 'Task 6', status: 'In Progress' },
+		{ name: 'Task 7', status: 'Not Started' },
+		{ name: 'Task 8', status: 'Done' },
+		{ name: 'Task 9', status: 'Done' },
+		{ name: 'Task 10', status: 'In Progress' },
+	],
+};
+//CHECK TO SEE IF NOT STARTED
+function listNotStarted(data) {
+	let listOfTasks = data.tasks;
+	listOfTasks.forEach(function (element) {
+		if (element.status === 'Not Started') {
+			console.log(`${element.name} is ${element.status}`);
+		}
+	});
+}
+// listNotStarted(data);
+// OPTION 2 with For Lopp
+function secondOption(data) {
+	let listOfTasks = data.tasks;
+	for (let i = 0; i < listOfTasks.length; i++) {
+		const element = listOfTasks[i];
+		if (element.status === 'Not Started') {
+			console.log(`${element.name} is ${element.status}`);
+		}
+	}
+}
+// secondOption(data);
+
+// PRINT OFF A LIST OF TASKS and put them into CATAGORIES
+function formattedTasks(data) {
+	let listOfTasks = data.tasks;
+	console.log(`Not Started`);
+	listOfTasks.forEach(function (element) {
+		if (element.status === 'Not Started') {
+			console.log(element.lastName);
+		}
+	});
+	console.log(`Done`);
+	listOfTasks.forEach(function (element) {
+		if (element.status === 'Done') {
+			console.log(element.name);
+		}
+	});
+	console.log(`In Progress`);
+	listOfTasks.forEach(function (element) {
+		if (element.status === 'In Progress') {
+			console.log(element.name);
+		}
+	});
+}
+formattedTasks(data);
