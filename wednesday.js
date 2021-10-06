@@ -70,12 +70,90 @@ function evenAndOdd(arr) {
 evenAndOdd(arr);
 //
 function getRandomInt(start, end) {
-	let newArray = [];
+	let evenArray = [];
+	let oddArray = [];
 	for (let i = start; i <= end; i++) {
 		let a = Math.floor(Math.random() * end) + 1;
-		newArray.push(a);
+		if (a % 2 === 0) {
+			evenArray.push(a);
+		} else {
+			oddArray.push(a);
+		}
 	}
-	console.log(newArray);
+	console.log(evenArray);
+	console.log(oddArray);
 }
 
 getRandomInt(0, 100);
+// OBJECTS ///////////////////////////////////////////////
+let mark = {};
+mark.fullName = 'Mark Zuckerberg';
+// mark.company = 'Google';
+mark['companies'] = 'Facebook'; // 2nd way to set property on object
+mark.age = 18;
+mark.city = 'San Francisco';
+
+console.log(mark);
+//
+const elon = {
+	age: 33,
+	city: 'Austin',
+	fullName: 'Elon Musk',
+	companies: ['Space-X', 'Tesla'],
+};
+
+console.log(elon);
+
+function isAdult(person) {
+	if (person.age >= 18) {
+		console.log(`Legal Adult`);
+	}
+}
+isAdult(mark);
+
+function isCoderSchoolStaff(person) {
+	if (person.company === 'coderschool') {
+		console.log(`Works at coderschool`);
+	} else {
+		console.log(`Nope!`);
+	}
+}
+isCoderSchoolStaff(mark);
+// OBJECT EXERCISE ///////////////////////////////////////
+const charles = {};
+charles.company = `coderschool staff`;
+isCoderSchoolStaff(charles);
+//
+function describePerson(person) {
+	console.log(
+		`This is ${person.fullName}.  ${person.fullName} is ${person.age} years old. They work at ${person.companies}`
+	);
+}
+describePerson(mark);
+//HELP HERE - HOW TO GET SECOND VALUE FROM OBJECT VALUE
+console.log(charles);
+console.log(charles.company);
+console.log(charles.company.split().slice()[1]);
+//
+// INITIALS FUNCTION
+function initials(person) {
+	let first = person.fullName.charAt();
+	// let last = person.fullName...initials
+	console.log(first);
+}
+initials(mark);
+// AGE ONE YEAR FUNCITON
+function ageOneYear(person) {
+	let newAge = person.age + 1;
+	console.log(newAge);
+}
+ageOneYear(mark);
+// GET BIRTH YEAR
+function getBirthYear(person) {
+	let current = person.age;
+	let year = new Date().getFullYear();
+	let birthYear = year - current;
+	console.log(birthYear);
+}
+getBirthYear(mark);
+//
