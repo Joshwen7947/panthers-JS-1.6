@@ -28,3 +28,19 @@ function incrementOnClick() {
 document
 	.getElementById('change-click')
 	.addEventListener('click', incrementOnClick);
+// ////////////////////////////////////////////////////////////////////////////////////////////////
+let hoverCount = 0;
+function changeHover() {
+	hoverCount++;
+	document.getElementById(`change-hover`).innerHTML = hoverCount;
+}
+document
+	.getElementById(`change-hover`)
+	.addEventListener(`mouseover`, changeHover);
+
+function changeColor() {
+	let box = document.getElementById(`change-color`);
+	var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+	box.style.backgroundColor = randomColor;
+}
+setInterval(changeColor, 3000);
